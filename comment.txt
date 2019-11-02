@@ -1,0 +1,13 @@
+Input -o ALL
+Input -e ./CMTS/HSC_data/data.txt
+Input -i ./CMTS/HSC_data/ident.txt
+Output -o ./CMTS/HSC_data/result
+Corr -c 10000 -a 5 -m 0.05
+Diff -c 10000 -a 5 -m 0.05
+PCA -c 10000 -a 1 -n 30
+SPCA -c 10000 -a 1 -n 30
+KPCA -c 10000 -a 1 -n 30 -k cosine
+ICA -c 10000 -a 1 -n 30
+FA -c 10000 -a 1 -n 30
+LDA -c 10000 -a 1 -n max
+TSVD -c 10000 -a 1 -n 30
