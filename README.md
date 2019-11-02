@@ -25,14 +25,11 @@ TSVD -c 10000 -a 1 -n 30
 ```
 The output contains three kinds of files : 
 
-*Mean file* : 
-..._**Method**_mean.txt : The _median matrix_ of multiple calculations 
+*Mean file* : <br>..._**Method**_mean.txt : The _median matrix_ of multiple calculations 
 
-*BF file* : 
-..._**Method**_BF.txt : The _BF matrix_ of multiple calculations 
+*BF file* : <br>..._**Method**_BF.txt : The _BF matrix_ of multiple calculations 
 
-*Information file* : 
-..._**infor**.txt : The information of calculations and data 
+*Information file* : <br>..._**infor**.txt : The information of calculations and data 
 
 |  comment | meaning  |
 |:---:|---|
