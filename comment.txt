@@ -5,7 +5,6 @@ Output -o ./test/result
 Corr -c 10000 -a 5 -m 0.05
 Diff -c 10000 -a 5 -m 0.05
 PCA -c 10000 -a 1 -n 30
-SPCA -c 10000 -a 1 -n 30
 KPCA -c 10000 -a 1 -n 30 -k cosine
 ICA -c 10000 -a 1 -n 30
 FA -c 10000 -a 1 -n 30
