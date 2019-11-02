@@ -1,1 +1,3 @@
 # CCI
+
+We developed a new approach, counterpart composite index (CCI), to search healthy counterpart of each leukemia cell subpopulation by integrating multiple statistics to project leukemia cells onto healthy hematopoietic cells. CCI combines multiple measures, i.e. expression difference, networks, embedding space in dimension reduction, GSEA et al., to improve statistical power. Facilitated by the comprehensive cell atlas of BMMCs and HSPCs, CCI project leukemia subclones to normal cells to characterize the cell types or progressive status of leukemias.
