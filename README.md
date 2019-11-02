@@ -6,6 +6,7 @@ Run this line of code to start the calculation :
 ```
 python CCI_main.py comment.txt
 ```
+The **test_data** could be used directly.
 
 The file comment.txt is something like :
 ```
@@ -16,16 +17,34 @@ Output -o Path_to_write_the_results
 Corr -c 10000 -a 5 -m 0.05
 Diff -c 10000 -a 5 -m 0.05
 PCA -c 10000 -a 1 -n 30
-SPCA -c 10000 -a 1 -n 30
 KPCA -c 10000 -a 1 -n 30 -k cosine
 ICA -c 10000 -a 1 -n 30
 FA -c 10000 -a 1 -n 30
 LDA -c 10000 -a 1 -n max
 TSVD -c 10000 -a 1 -n 30
-# -c Number of calculations
-# -a Number of cells to get an average cell
-# -n Number of data dimensions left after dimension reduction
-# -m Limit of the rate of genes where both tow average cells have meaningful expression data
-
-
 ```
+
+|  comment | meaning  |
+|:---:|---|
+| Input -o |  **Not useful at the moment** , but need to equal to **ALL**  |
+| Input -e | Path to the **expression file** |
+| Input -i  | Path to the **identity file** |
+| Output -o | Path to write the results |
+| Corr | Calculate the **Correlation Coefficient** of all the expression data of two cellular genes |
+| Diff  | Calculate the average **Euclidean Distance** of all the expression data of two cellular genes |
+| PCA | Calculate the average **Euclidean Distance** of all the expression data of two cellular genes after **PCA** dimensionality reduction |
+| KPCA | Calculate the average **Euclidean Distance** of all the expression data of two cellular genes after **Kernel PCA** dimensionality reduction |
+| ICA | Calculate the average **Euclidean Distance** of all the expression data of two cellular genes after **ICA** dimensionality reduction |
+| FA | Calculate the average **Euclidean Distance** of all the expression data of two cellular genes after **Factor Analysis** dimensionality reduction |
+| LDA | Calculate the average **Euclidean Distance** of all the expression data of two cellular genes after **Linear Discriminant Analysis** dimensionality reduction |
+| TSVD | Calculate the average **Euclidean Distance** of all the expression data of two cellular genes after **Truncated SVD** dimensionality reduction |
+| -c  | Number of calculations |
+| -a | Number of cells to get an average cell |
+| -n | Number of data dimensions left after dimension reduction. If **-n max** in LDA model, it means that **n = min(num_features, mun_groups)-1** |
+| -m | Limit of the rate of genes where both tow average cells have meaningful expression value|
+| -k | The **kernel function** used in **Kernel PCA** |
+| # | **Make a line of commands invalid** |
+
+
+
+

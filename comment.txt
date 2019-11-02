@@ -1,7 +1,7 @@
 Input -o ALL
-Input -e ./CMTS/HSC_data/data.txt
-Input -i ./CMTS/HSC_data/ident.txt
-Output -o ./CMTS/HSC_data/result
+Input -e ./test_data/data.txt
+Input -i ./test_data/ident.txt
+Output -o ./test/result
 Corr -c 10000 -a 5 -m 0.05
 Diff -c 10000 -a 5 -m 0.05
 PCA -c 10000 -a 1 -n 30
