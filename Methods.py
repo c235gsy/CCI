@@ -231,49 +231,6 @@ def get_matrix_corr(data, lab, clusters, average_number, caculation_number, matc
     return matrix
 
 
-def get_Dic_DR(lab, exp_data, obj_name, caculation_number, average_number):
-    Dic_PCA = {ref_name: None for ref_name in lab.keys () if ref_name != obj_name}
-    ## the format of Dic_different: key is the number of ref, value are the values of different
-    for ref_name in Dic_PCA.keys ():
-        the_obj = exp_data[lab[obj_name]]
-        obj_num = len (the_obj)
-        the_ref = exp_data[lab[ref_name]]
-        ref_num = len (the_ref)
-        turn = 1
-        result = []
-        while turn <= caculation_number:
-            obj_random_cell = get_average_cell (the_obj[np.array (random.sample (range (0, obj_num), average_number))])
-            ref_random_cell = get_average_cell (the_ref[np.array (random.sample (range (0, ref_num), average_number))])
-            pca_diff = different (ref_random_cell, obj_random_cell) / len (obj_random_cell)
-            result.append (pca_diff)
-            turn = turn + 1
-        Dic_PCA[ref_name] = np.array (result)
-    return Dic_PCA
-
-
-def get_best_KernelPCA(X, n_components):
-    from sklearn.metrics import mean_squared_error
-    best_parameters = {}
-    best_score = 0.0
-    for gamma in np.linspace (0.01, 0.51, 10):
-        for kernel in ["linear", "poly", "rbf", "sigmoid", "cosine", "precomputed"]:
-            kpca = KernelPCA (n_components=n_components, fit_inverse_transform=True)
-            X_reduced = kpca.fit_transform (X)
-            X_preimage = kpca.inverse_transform (X_reduced)
-
-            score = mean_squared_error (X, X_preimage)
-            if score > best_score:
-                best_score = score
-                best_parameters = {'gamma': gamma, 'kernel': kernel}
-    print (best_parameters, best_score)
-    rbf_pca = KernelPCA (n_components=n_components, kernel=best_parameters['kernel'], gamma=best_parameters['gamma'],
-                         fit_inverse_transform=True)
-    X_reduced = rbf_pca.fit_transform (X)
-    # X_preimage = rbf_pca.inverse_transform (X_reduced)
-    # mean_squared_error (X, X_preimage)
-    return X_reduced
-
-
 def get_Dic_Corr(lab, exp_data, obj_name, caculation_number, average_number, matchLimit):
     Dic_Corr = {ref_name: None for ref_name in lab.keys () if ref_name != obj_name}
     ## the format of Dic_different: key is the number of ref, value are the values of different

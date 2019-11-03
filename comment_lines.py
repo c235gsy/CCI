@@ -83,21 +83,7 @@ def get_sets():
                                     #PCA_Set = float(arg)
                                     gl.set_value("PCA_n_components", float(arg))
 
-                    if com[0] == "SPCA":
-                        #PCA_Flag = True
-                        gl.set_value("SPCA_Flag", True)
-                        opts, args = getopt.getopt(com[1:], "c:n:a:", ["SPCA_CalNum=",
-                                                                       "SPCA_n_components=", "SPCA_AvgNum="])
-                        for opt, arg in opts:
-                            if opt in ["-c", "--SPCA_CalNum"]:
-                                #PCA_CalNum = int(arg)
-                                gl.set_value("SPCA_CalNum", int(arg))
-                            if opt in ["-a", "--SPCA_AvgNum"]:
-                                #PCA_CalNum = int(arg)
-                                gl.set_value("SPCA_AvgNum", int(arg))
-                            if opt in ["-n", "--SPCA_n_components"]:
-                                gl.set_value("SPCA_n_components", int(arg))
-
+                  
                     if com[0] == "KPCA":
                         #KPCA_Flag = True
                         gl.set_value("KPCA_Flag", True)
